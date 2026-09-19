@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080b12"><meta name="description" content="Fast temporary inboxes. No signup. Local encrypted history.">
+<title>Ghostpost - temporary inboxes</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="noise"></div>
+<header class="topbar"><a class="brand" href="#"><span class="brandmark">G</span><span>GHOSTPOST</span></a><div class="api-pill"><span id="apiDot"></span><span id="apiState">Checking relay</span></div><button class="icon-btn" id="privacyBtn" title="Privacy notes">?</button></header>
+<main class="shell">
+  <aside class="rail">
+    <div class="rail-head"><div><p class="eyebrow">Temporary addresses</p><h1>Your relay deck</h1></div><button id="newBtn" class="new-btn"><span>＋</span> New inbox</button></div>
+    <div class="create-panel" id="createPanel" hidden>
+      <label for="aliasInput">Choose an alias <span>optional</span></label>
+      <div class="alias-row"><input id="aliasInput" maxlength="28" autocomplete="off" placeholder="project-demo"><span id="domainPreview">@loading</span></div>
+      <p class="hint" id="aliasHint">Letters, numbers, dots, dashes and underscores.</p>
+      <div class="panel-actions"><button class="quiet" id="cancelCreate">Cancel</button><button class="primary" id="createBtn">Create address</button></div>
+    </div>
+    <div id="accountList" class="account-list"></div>
+    <button class="history-toggle" id="historyBtn"><span>⌛</span> Address history <b id="historyCount">0</b></button>
+    <div id="historyPanel" class="history-panel" hidden></div>
+    <div class="rail-foot"><span>Local vault</span><button id="vaultBtn" class="vault-state">Session only</button></div>
+  </aside>
+  <section class="workspace">
+    <div id="emptyState" class="empty-state">
+      <div class="orb"><span>✦</span></div><p class="eyebrow">Nothing listening yet</p><h2>Make an address.<br>Leave no trail here.</h2><p>Create a disposable inbox for sign-ups, testing, or one-time codes. No account needed.</p><button class="primary hero-create" id="heroCreate">Create first inbox</button>
+      <div class="trust-row"><span>◈ No signup</span><span>◈ Local encrypted vault</span><span>◈ Auto-expiring view</span></div>
+    </div>
+    <div id="inboxView" hidden>
+      <div class="address-card">
+        <div><p class="eyebrow">Receiving at</p><div class="address-line"><h2 id="addressText"></h2><button id="copyBtn" class="copy-btn">Copy</button></div><p class="expiry"><span class="pulse"></span><span id="expiryText"></span></p></div>
+        <div class="address-tools"><button id="qrBtn" class="tool-btn">QR</button><button id="refreshBtn" class="tool-btn">Refresh</button><button id="deleteBtn" class="tool-btn danger">Burn</button></div>
+      </div>
+      <div class="toolbar"><div class="tabs"><button class="active">Inbox <b id="unreadCount">0</b></button></div><div class="refresh-control"><span id="lastChecked">Not checked</span><select id="intervalSelect" aria-label="Refresh interval"><option value="10">10 sec</option><option value="20" selected>20 sec</option><option value="30">30 sec</option><option value="60">1 min</option><option value="0">Paused</option></select></div></div>
+      <div class="mail-layout">
+        <div class="message-list" id="messageList"></div>
+        <article class="reader" id="reader"><div class="reader-empty"><span>↙</span><h3>Select a message</h3><p>The message body and attachments will open here.</p></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="modal-wrap" id="qrModal" hidden><div class="modal"><button class="modal-x" data-close>×</button><p class="eyebrow">Scan to copy</p><h2>Your temporary address</h2><div id="qrCode"></div><code id="qrAddress"></code><p class="modal-note">The QR contains the address only. It does not grant inbox access.</p></div></div>
+<div class="modal-wrap" id="privacyModal" hidden><div class="modal wide"><button class="modal-x" data-close>×</button><p class="eyebrow">Plain-language privacy</p><h2>Private here. Temporary out there.</h2><div class="notes"><div><b>On this device</b><p>Inbox credentials stay in this browser. Turn on the encrypted vault to protect saved address history with a passphrase.</p></div><div><b>At the mail relay</b><p>Messages pass through mail.tm so they can be delivered. Do not use temporary mail for banking, recovery accounts, health records, or anything sensitive.</p></div><div><b>No tracking from this app</b><p>No analytics, ad scripts, cookies, or app backend. This page talks directly to the mail.tm API.</p></div></div></div></div>
+<div class="modal-wrap" id="vaultModal" hidden><form class="modal" id="vaultForm"><button type="button" class="modal-x" data-close>×</button><p class="eyebrow">Encrypted local vault</p><h2>Protect address history</h2><p class="modal-note">Set a passphrase. It never leaves this browser and cannot be recovered.</p><label>Vault passphrase<input id="vaultPass" type="password" minlength="8" autocomplete="new-password" placeholder="At least 8 characters" required></label><button class="primary" type="submit">Enable encrypted vault</button><button class="text-button" type="button" id="clearData">Clear all local data</button></form></div>
+<div class="toast" id="toast"></div>
+<script src="qrcode.min.js"></script><script src="app.js"></script>
+</body></html>
