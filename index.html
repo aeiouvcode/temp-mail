@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src https://api.guerrillamail.com; font-src 'self'; frame-src 'self'; media-src 'none'; object-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#080b12"><meta name="description" content="Fast temporary inboxes. No signup. Local encrypted history.">
 <title>Ghostpost - temporary inboxes</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
 <div class="noise"></div>
@@ -45,5 +45,5 @@
 <div class="modal-wrap" id="privacyModal" hidden><div class="modal wide"><button class="modal-x" data-close>×</button><p class="eyebrow">Plain-language privacy</p><h2>Private here. Temporary out there.</h2><div class="notes"><div><b>On this device</b><p>Inbox credentials stay in this browser. Turn on the encrypted vault to protect saved address history with a passphrase.</p></div><div><b>At the mail relay</b><p>Messages pass through Guerrilla Mail so they can be delivered. Do not use temporary mail for banking, recovery accounts, health records, or anything sensitive.</p></div><div><b>No tracking from this app</b><p>No analytics, ad scripts, cookies, or app backend. This page talks directly to the Guerrilla Mail API.</p></div></div></div></div>
 <div class="modal-wrap" id="vaultModal" hidden><form class="modal" id="vaultForm"><button type="button" class="modal-x" data-close>×</button><p class="eyebrow">Encrypted local vault</p><h2>Protect address history</h2><p class="modal-note">Set a passphrase. It never leaves this browser and cannot be recovered.</p><label>Vault passphrase<input id="vaultPass" type="password" minlength="8" autocomplete="new-password" placeholder="At least 8 characters" required></label><button class="primary" type="submit">Enable encrypted vault</button><button class="text-button" type="button" id="clearData">Clear all local data</button></form></div>
 <div class="toast" id="toast"></div>
-<script src="qrcode.min.js"></script><script src="app.js"></script>
+<script src="qrcode.min.js"></script><script src="app.js?v=2"></script>
 </body></html>
