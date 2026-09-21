@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src https://api.mail.tm; font-src 'self'; frame-src 'self'; media-src 'none'; object-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src https://api.guerrillamail.com; font-src 'self'; frame-src 'self'; media-src 'none'; object-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#080b12"><meta name="description" content="Fast temporary inboxes. No signup. Local encrypted history.">
 <title>Ghostpost - temporary inboxes</title>
 <link rel="stylesheet" href="styles.css">
@@ -14,7 +14,7 @@
     <div class="rail-head"><div><p class="eyebrow">Temporary addresses</p><h1>Your relay deck</h1></div><button id="newBtn" class="new-btn"><span>＋</span> New inbox</button></div>
     <div class="create-panel" id="createPanel" hidden>
       <label for="aliasInput">Choose an alias <span>optional</span></label>
-      <div class="alias-row"><input id="aliasInput" maxlength="28" autocomplete="off" placeholder="project-demo"><span id="domainPreview">@loading</span></div>
+      <div class="alias-row"><input id="aliasInput" maxlength="28" autocomplete="off" placeholder="project-demo"><span id="domainPreview">@assigned on creation</span></div>
       <p class="hint" id="aliasHint">Letters, numbers, dots, dashes and underscores.</p>
       <div class="panel-actions"><button class="quiet" id="cancelCreate">Cancel</button><button class="primary" id="createBtn">Create address</button></div>
     </div>
@@ -42,7 +42,7 @@
   </section>
 </main>
 <div class="modal-wrap" id="qrModal" hidden><div class="modal"><button class="modal-x" data-close>×</button><p class="eyebrow">Scan to copy</p><h2>Your temporary address</h2><div id="qrCode"></div><code id="qrAddress"></code><p class="modal-note">The QR contains the address only. It does not grant inbox access.</p></div></div>
-<div class="modal-wrap" id="privacyModal" hidden><div class="modal wide"><button class="modal-x" data-close>×</button><p class="eyebrow">Plain-language privacy</p><h2>Private here. Temporary out there.</h2><div class="notes"><div><b>On this device</b><p>Inbox credentials stay in this browser. Turn on the encrypted vault to protect saved address history with a passphrase.</p></div><div><b>At the mail relay</b><p>Messages pass through mail.tm so they can be delivered. Do not use temporary mail for banking, recovery accounts, health records, or anything sensitive.</p></div><div><b>No tracking from this app</b><p>No analytics, ad scripts, cookies, or app backend. This page talks directly to the mail.tm API.</p></div></div></div></div>
+<div class="modal-wrap" id="privacyModal" hidden><div class="modal wide"><button class="modal-x" data-close>×</button><p class="eyebrow">Plain-language privacy</p><h2>Private here. Temporary out there.</h2><div class="notes"><div><b>On this device</b><p>Inbox credentials stay in this browser. Turn on the encrypted vault to protect saved address history with a passphrase.</p></div><div><b>At the mail relay</b><p>Messages pass through Guerrilla Mail so they can be delivered. Do not use temporary mail for banking, recovery accounts, health records, or anything sensitive.</p></div><div><b>No tracking from this app</b><p>No analytics, ad scripts, cookies, or app backend. This page talks directly to the Guerrilla Mail API.</p></div></div></div></div>
 <div class="modal-wrap" id="vaultModal" hidden><form class="modal" id="vaultForm"><button type="button" class="modal-x" data-close>×</button><p class="eyebrow">Encrypted local vault</p><h2>Protect address history</h2><p class="modal-note">Set a passphrase. It never leaves this browser and cannot be recovered.</p><label>Vault passphrase<input id="vaultPass" type="password" minlength="8" autocomplete="new-password" placeholder="At least 8 characters" required></label><button class="primary" type="submit">Enable encrypted vault</button><button class="text-button" type="button" id="clearData">Clear all local data</button></form></div>
 <div class="toast" id="toast"></div>
 <script src="qrcode.min.js"></script><script src="app.js"></script>
