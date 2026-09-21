@@ -1,13 +1,19 @@
 # Ghostpost
 
-A polished, static temporary-mail client powered by the public [mail.tm](https://docs.mail.tm) API.
+A private-by-design temporary inbox that now works directly from GitHub Pages.
 
-- No signup, app backend, analytics, or bundled secrets
-- Multiple simultaneous inboxes, custom aliases, copy and QR
-- Live polling with interval controls, message preview and attachments
-- Credentials remain in session storage by default
-- Optional local WebCrypto AES-GCM vault (PBKDF2, 180k iterations)
-- Plain-language privacy notes and human-readable errors
+## What changed
+
+The original mail.tm build was blocked by browser CORS, so its core action could not work on the deployed site. Ghostpost now uses Guerrilla Mail's browser-accessible public API. Address creation, custom aliases, polling, message reading, copy, QR, local session history and burn-from-device all work without a backend or bundled key.
+
+- Static, no signup, no analytics, no app backend
+- Multiple simultaneous inbox sessions and custom aliases
+- Automatic polling with a pause control
+- Sandboxed HTML mail preview with remote images removed
+- Credentials stay in session storage by default
+- Optional AES-GCM encrypted local snapshot for the current session
+- Plain-language errors instead of network dumps
 
 ## Privacy boundary
-Messages are received and retained by mail.tm under its own terms. Do not use disposable mail for banking, account recovery, health records, or sensitive personal data. The app itself sends requests directly from the browser to mail.tm.
+
+Messages pass through Guerrilla Mail and normally expire there after about one hour. Do not use disposable mail for banking, account recovery, health records, or sensitive personal data.
