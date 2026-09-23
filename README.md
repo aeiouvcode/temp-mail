@@ -1,10 +1,14 @@
 # Ghostpost
 
-A private-by-design temporary inbox that now works directly from GitHub Pages.
+A private-by-design temporary inbox that runs directly from GitHub Pages.
 
-## What changed
+![Ghostpost inbox](docs/screenshot.jpg)
 
-The original mail.tm build was blocked by browser CORS, so its core action could not work on the deployed site. Ghostpost now uses Guerrilla Mail's browser-accessible public API. Address creation, custom aliases, polling, message reading, copy, QR, local session history and burn-from-device all work without a backend or bundled key.
+**Live:** https://aeiouvcode.github.io/temp-mail/
+
+## How it works
+
+Ghostpost uses Guerrilla Mail's browser-accessible public API. Address creation, custom aliases, polling, message reading, copy, QR, local session history and burn-from-device all work without a backend or bundled key.
 
 - Static, no signup, no analytics, no app backend
 - Multiple simultaneous inbox sessions and custom aliases
